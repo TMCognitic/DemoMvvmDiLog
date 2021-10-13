@@ -16,8 +16,11 @@ namespace DemoMvvmDiLog.ViewModels
         {
             _logger = logger;
             _dispatcher = dispatcher;
-            logger.LogInformation("Test de log");            
-            logger.LogInformation("Test de log2");
+            logger.LogTrace("Test LogTrace");           
+            logger.LogDebug("Test LogDebug");           
+            logger.LogInformation("Test LogInformation");
+            logger.LogWarning("Test LogWarning");
+            logger.LogError("Test LogError");
         }
     }
 }

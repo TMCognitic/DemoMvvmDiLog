@@ -17,7 +17,13 @@ namespace DemoMvvmDiLog.ViewModels
             services.AddDispatcher()
                 .AddViews();
             services.AddLogging(c => {
-                c.AddConsole().AddConfiguration(Configuration);                
+                c.SetMinimumLevel(LogLevel.Trace);
+#if DEBUG
+                c.AddDebug().AddConfiguration(Configuration);
+                c.AddConsole().AddConfiguration(Configuration);
+#else
+                c.AddEventLog().AddConfiguration(Configuration);
+#endif
             });
             services.AddSingleton<MainViewModel>();
         }
