@@ -12,7 +12,7 @@ namespace DemoMvvmDiLog.Tools
     public abstract class LocatorBase
     {
         protected IConfiguration Configuration { get; private set; }
-        internal IServiceProvider Container { get; init; }
+        protected IServiceProvider Container { get; init; }
 
         protected LocatorBase()
         {
@@ -27,5 +27,15 @@ namespace DemoMvvmDiLog.Tools
         }
 
         protected abstract void ConfigureServices(IServiceCollection services);
+
+        public TResource GetResource<TResource>()
+        {
+            return (TResource)GetResource(typeof(TResource));
+        }
+
+        public object GetResource(Type resourceType)
+        {
+            return Container.GetService(resourceType);
+        }
     }
 }

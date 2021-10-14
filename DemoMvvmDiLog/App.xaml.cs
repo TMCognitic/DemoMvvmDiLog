@@ -1,4 +1,5 @@
 ﻿using DemoMvvmDiLog.ViewModels;
+using DemoMvvmDiLog.Views;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
